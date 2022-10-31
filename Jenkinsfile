@@ -7,7 +7,6 @@ sudo chkconfig docker on
 sudo yum install -y git
 sudo chmod +x /usr/local/bin/docker-compose
 sudo systemctl enable docker
-exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
 sudo su --
 hostname tomcat-server
 amazon-linux-extras install -y java-openjdk11
