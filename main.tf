@@ -7,22 +7,20 @@ terraform {
 }
 
 provider "aws" {
-    profile = var.ec2_profile
-    region = var.aws_region
+    region = "us-east-1"
     
 }
 
 
 
 resource "aws_instance" "tomcat" {
-    ami = var.ec2_ami
-    count = var.ec2_count
-    key_name   = var.key_name
-    instance_type = var.instance_type
-    security_groups = ["${var.ec2_sg}"]
-    subnet_id = element(var.ec2_subnet_id, count.index)
+    ami = "ami-026b57f3c383c2eec"
+    count = "1"
+    key_name   = "Jenkins.pem"
+    instance_type = "t2.micro"
+    security_groups = "sg-0edcb99a3be5a167c"
     tags = {
-        Name = "${var.ec2_tags[0]}"
+        Name = "JenkinsServer"
     } 
     user_data = file("Jenkinsfile")
 
