@@ -3,7 +3,6 @@ sudo su --
 hostname tomcat-server
 amazon-linux-extras
 cd /opt/
-tar -xvzf apache-tomcat-8.5.49.tar.gz
 mv apache-tomcat-8.5.49 tomcat
 cd /opt/tomcat/bin/
 ./startup.sh
