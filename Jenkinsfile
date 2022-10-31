@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo su --
 hostname tomcat-server
-amazon-linux-extras install -y java-openjdk11
+amazon-linux-extras -y java-openjdk11
 cd /opt/
 wget https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.49/bin/apache-tomcat-8.5.49.tar.gz
 tar -xvzf apache-tomcat-8.5.49.tar.gz
