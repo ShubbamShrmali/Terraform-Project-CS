@@ -20,7 +20,7 @@ resource "aws_instance" "tomcat" {
     key_name   = var.key_name
     instance_type = var.instance_type
     security_groups = ["${var.ec2_sg}"]
-    subnet_id = element(var.ec2_subnet_id, count.index) #element(list, index)
+    subnet_id = element(var.ec2_subnet_id, count.index)
     tags = {
         Name = "${var.ec2_tags[0]}"
     } 
