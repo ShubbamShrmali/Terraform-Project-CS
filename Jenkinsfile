@@ -1,12 +1,6 @@
 #!/bin/bash
-sudo yum install -y yum-utils
-sudo amazon-linux-extras install docker
-sudo service docker start
-sudo usermod -a -G docker ec2-user
-sudo chkconfig docker on
-sudo yum install -y git
-sudo chmod +x /usr/local/bin/docker-compose
-sudo systemctl enable docker
+sudo su
+exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
 sudo su --
 hostname tomcat-server
 amazon-linux-extras install -y java-openjdk11
@@ -16,5 +10,14 @@ tar -xvzf apache-tomcat-8.5.49.tar.gz
 mv apache-tomcat-8.5.49 tomcat
 cd /opt/tomcat/bin/
 ./startup.sh
+sudo yum install -y yum-utils
+sudo amazon-linux-extras install docker
+sudo service docker start
+sudo usermod -a -G docker ec2-user
+sudo chkconfig docker on
+sudo yum install -y git
+sudo curl -l https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+sudo systemctl enable docker
 yum install git -y
 
