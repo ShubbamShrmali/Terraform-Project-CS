@@ -23,6 +23,6 @@ resource "aws_instance" "JenkinDeploy" {
     tags = {
         Name = "JenkinsServer"
     } 
-    user_data = file("jenkinsApps")
+    user_data = file("jenkinsapp.sh")
 
 }
