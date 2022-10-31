@@ -22,6 +22,6 @@ resource "aws_instance" "tomcat" {
     tags = {
         Name = "JenkinsServer"
     } 
-    user_data = file("Jenkinsfile")
+    user_data = file("jenkinsfile")
 
 }
