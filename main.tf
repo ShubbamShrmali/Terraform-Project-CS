@@ -20,7 +20,7 @@ resource "aws_instance" "JenkinDeploy" {
     count = "1"
     key_name   = "Jenkins"
     instance_type = "t2.micro"
-    security_groups = ["sg-0edcb99a3be5a167c"]
+    security_groups = ["launch-wizard-1"]
     tags = {
         Name = "JenkinsServer"
     } 
