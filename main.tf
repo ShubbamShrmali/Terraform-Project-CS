@@ -24,6 +24,6 @@ resource "aws_instance" "tomcat" {
     tags = {
         Name = "${var.ec2_tags[0]}"
     } 
-    user_data = file("T-G-G.sh")
+    user_data = file("Jenkins.sh")
 
 }
