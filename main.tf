@@ -15,7 +15,7 @@ provider "aws" {
 
 
 
-resource "aws_instance" "tomcat" {
+resource "aws_instance" "JenkinDeploy" {
     ami = "ami-026b57f3c383c2eec"
     count = "1"
     key_name   = "Jenkins"
